@@ -57,5 +57,40 @@ namespace TechJobsTests
 
             Assert.IsFalse(testJob1.Equals(testJob2));
         }
+
+        [TestMethod]
+
+        public void BlankLinesAroundJobInfo()
+        {
+            Job testJob1 = new Job("Product tester", new Employer("ACME")
+                , new Location("Desert"), new PositionType("Quality control")
+                , new CoreCompetency("Persistence"));
+
+            string expectedOutput = "\n" + "\n";
+            string actualOutput = testJob1.ToString();
+            actualOutput = actualOutput.Substring(0, 1) + actualOutput.Substring(actualOutput.Length - 1, 1);
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
+
+        [TestMethod]
+        
+        public void LabelsPrintedFromToString()
+        {
+            Job testJob1 = new Job("Product tester", new Employer("ACME")
+                , new Location("Desert"), new PositionType("Quality control")
+                , new CoreCompetency("Persistence"));
+
+            string actualOutput = testJob1.ToString();
+            string expectedOutput = "\n";
+            expectedOutput += "ID: 2\n";
+            expectedOutput += "Name: Product tester\n";
+            expectedOutput += "Employer: ACME\n";
+            expectedOutput += "Position Type: Quality control\n";
+            expectedOutput += "Core Competency: Persistence\n";
+            expectedOutput += "\n";
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+        }
     }
 }
