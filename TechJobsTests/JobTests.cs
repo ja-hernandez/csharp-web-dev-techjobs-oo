@@ -83,7 +83,7 @@ namespace TechJobsTests
 
             string actualOutput = testJob1.ToString();
             string expectedOutput = "\n";
-            expectedOutput += "ID: 2\n";
+            expectedOutput += "ID: 4\n";
             expectedOutput += "Name: Product tester\n";
             expectedOutput += "Employer: ACME\n";
             expectedOutput += "Position Type: Quality control\n";
@@ -91,6 +91,42 @@ namespace TechJobsTests
             expectedOutput += "\n";
 
             Assert.AreEqual(expectedOutput, actualOutput);
+        }
+
+        [TestMethod]
+
+        public void EmptyFieldsHandled()
+        {
+            Job testJob1 = new Job("Job", new Employer("")
+                , new Location(""), new PositionType("")
+                , new CoreCompetency(""));
+
+            string actualOutput = testJob1.ToString();
+            string expectedOutput = "\n";
+            expectedOutput += "ID: 3\n";
+            expectedOutput += "Name: Job\n";
+            expectedOutput += "Employer: Data not available\n";
+            expectedOutput += "Position Type: Data not available\n";
+            expectedOutput += "Core Competency: Data not available\n";
+            expectedOutput += "\n";
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+        } 
+
+        [TestMethod]
+
+        public void AllEmptyDoesntExist()
+        {
+            Job testJob1 = new Job("", new Employer("")
+                , new Location(""), new PositionType("")
+                , new CoreCompetency(""));
+
+            string actualOutput = testJob1.ToString();
+            string expectedOutput = "\n";
+            expectedOutput += "OOPS! This job does not seem to exist.";
+
+            Assert.AreEqual(expectedOutput, actualOutput);
+
         }
     }
 }

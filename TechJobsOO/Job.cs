@@ -46,11 +46,16 @@ namespace TechJobsOO
         public override string ToString()
         {
             string jobsInfo = "\n";
-            jobsInfo += "ID: " + this.Id + "\n";
-            jobsInfo += "Name: " + this.Name + "\n";
-            jobsInfo += "Employer: " + this.EmployerName + "\n";
-            jobsInfo += "Position Type: " + this.JobType + "\n";
-            jobsInfo += "Core Competency: " + this.JobCoreCompetency + "\n";
+            if (Name == "" && EmployerName.ToString() == "" && JobType.ToString() == "" && JobCoreCompetency.ToString() == "")
+            {
+                jobsInfo += "OOPS! This job does not seem to exist.";
+                return jobsInfo;
+            }
+            jobsInfo += $"ID: {Id}\n";
+            jobsInfo += $"Name: {(Name == ""? "Data not available" : Name)}\n";
+            jobsInfo += $"Employer: {(EmployerName.ToString() == "" ? "Data not available" : EmployerName.ToString())}\n";
+            jobsInfo += $"Position Type: {(JobType.ToString() == "" ? "Data not available" : JobType.ToString())}\n";
+            jobsInfo += $"Core Competency: {(JobCoreCompetency.ToString() == "" ? "Data not available": JobCoreCompetency.ToString())}\n";
             jobsInfo += "\n";
             return jobsInfo;
         }
