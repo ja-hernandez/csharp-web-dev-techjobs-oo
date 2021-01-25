@@ -86,6 +86,7 @@ namespace TechJobsTests
             expectedOutput += "ID: 4\n";
             expectedOutput += "Name: Product tester\n";
             expectedOutput += "Employer: ACME\n";
+            expectedOutput += "Location: Desert\n";
             expectedOutput += "Position Type: Quality control\n";
             expectedOutput += "Core Competency: Persistence\n";
             expectedOutput += "\n";
@@ -106,6 +107,7 @@ namespace TechJobsTests
             expectedOutput += "ID: 3\n";
             expectedOutput += "Name: Job\n";
             expectedOutput += "Employer: Data not available\n";
+            expectedOutput += "Location: Data not available\n";
             expectedOutput += "Position Type: Data not available\n";
             expectedOutput += "Core Competency: Data not available\n";
             expectedOutput += "\n";
